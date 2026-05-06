@@ -1,0 +1,75 @@
+---
+// ここにオーナーごとのOTAリンクを設定（1箇所変えるだけで全部変わる！）
+const airbnbLink = "https://www.airbnb.jp/rooms/YOUR_ID";
+const bookingLink = "https://www.booking.com/hotel/YOUR_ID";
+const hostName = "オーナー名";
+const stayName = "宿の名前 - 〇〇別荘";
+---
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{stayName}</title>
+    <!-- Tailwind CSSはAstro標準機能で動作します -->
+  </head>
+  <body class="bg-stone-50 text-stone-800 font-serif">
+
+    <!-- 1. ヒーローセクション：一瞬で心を掴む -->
+    <section class="relative h-screen w-full overflow-hidden">
+      <div class="absolute inset-0 bg-black/30 z-10"></div>
+      <img src="/img/hero.jpg" class="object-cover w-full h-full scale-105 hover:scale-100 transition duration-[10s]" />
+      <div class="absolute inset-0 z-20 flex flex-col items-center justify-center text-white text-center p-4">
+        <h1 class="text-4xl md:text-6xl mb-4 tracking-widest">{stayName}</h1>
+        <p class="text-lg md:text-xl font-light mb-8">喧騒を忘れ、物語の続きをここで。</p>
+        <div class="flex gap-4">
+          <a href={airbnbLink} class="bg-[#FF5A5F] px-8 py-3 rounded-full font-bold hover:opacity-90 transition">Airbnbで予約</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. オーナーの想い：信頼を勝ち取る -->
+    <section class="max-w-3xl mx-auto py-24 px-6 text-center">
+      <h2 class="text-2xl mb-8 border-b border-stone-300 pb-4 inline-block">Concept</h2>
+      <p class="leading-loose text-lg text-left md:text-center">
+        「ただ泊まる場所」ではなく、「また帰りたくなる場所」を目指して。<br>
+        オーナーの{hostName}です。この土地の光、風、そして静寂を五感で感じていただけるよう、細部までこだわり抜きました。
+      </p>
+    </section>
+
+    <!-- 3. ギャラリー：OTAより美しく -->
+    <section class="grid grid-cols-2 md:grid-cols-4 gap-2 px-2">
+      <div class="aspect-square bg-gray-200 overflow-hidden"><img src="/img/room1.jpg" class="hover:scale-110 transition duration-500 object-cover h-full w-full"></div>
+      <div class="aspect-square bg-gray-200 overflow-hidden"><img src="/img/room2.jpg" class="hover:scale-110 transition duration-500 object-cover h-full w-full"></div>
+      <div class="aspect-square bg-gray-200 overflow-hidden"><img src="/img/room3.jpg" class="hover:scale-110 transition duration-500 object-cover h-full w-full"></div>
+      <div class="aspect-square bg-gray-200 overflow-hidden"><img src="/img/room4.jpg" class="hover:scale-110 transition duration-500 object-cover h-full w-full"></div>
+    </section>
+
+    <!-- 4. 周辺ガイド：付加価値の提案 -->
+    <section class="py-24 bg-stone-100 px-6">
+      <div class="max-w-5xl mx-auto text-center">
+        <h2 class="text-2xl mb-12 italic text-stone-500">Local Experience</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-left">
+            <h3 class="font-bold mb-2">● 朝の散歩道</h3>
+            <p class="text-sm">徒歩5分にある秘密の海岸。朝焼けが一番綺麗に見えるスポットです。</p>
+          </div>
+          <!-- 他のガイド項目を追加 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. スマホ固定フッター：【これが最強の営業材料】 -->
+    <div class="fixed bottom-0 left-0 w-full bg-white/90 backdrop-blur-md border-t border-stone-200 p-4 z-50 flex items-center justify-between md:px-12">
+      <div>
+        <p class="text-[10px] text-stone-500">空室状況を確認する</p>
+        <p class="font-bold text-sm">Best Price on OTA</p>
+      </div>
+      <div class="flex gap-2">
+        <a href={airbnbLink} class="bg-[#FF5A5F] text-white text-xs px-4 py-2 rounded-md font-bold">Airbnb</a>
+        <a href={bookingLink} class="bg-[#003580] text-white text-xs px-4 py-2 rounded-md font-bold">Booking.com</a>
+      </div>
+    </div>
+
+  </body>
+</html>
